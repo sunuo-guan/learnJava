@@ -8,7 +8,7 @@ public class Test394DecodeString {
 		System.out.println(decodeString(s));
 	}
 	
-	//ʹ��ջ
+	//使用栈
     public static String decodeString(String s) {
     	StringBuilder result = new StringBuilder();
     	Stack<Integer> numStack = new Stack<Integer>();

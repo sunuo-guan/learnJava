@@ -10,6 +10,11 @@ public class Test337rob3 {
     	return Math.max(result[0], result[1]);
     }
     
+    /*
+     * 两种情况：
+     * 当前节点偷：子节点都不能偷（dp[0]）
+     * 当前节点不偷：子节点可以偷可以不偷（dp[1]），根据子节点的偷（dp[0]）或不偷（dp[1]）的最大值进行选择
+     */
     public int[] robDp(TreeNode node) {
     	if(node == null) {
     		int[] res = {0,0};

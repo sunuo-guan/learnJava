@@ -9,7 +9,7 @@ public class Test347topK {
 		System.out.println(topKFrequentWithHeap(nums, k));
 	}
 	
-	//Í³¼ÆÔªËØÆµÂÊÅÅĞòÊä³ö
+	//ä½¿ç”¨hashmapç»Ÿè®¡å‡ºç°çš„æ¬¡æ•°
     public int[] topKFrequent(int[] nums, int k) {
     	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
     	for(int i = 0; i < nums.length; i++) {
@@ -20,11 +20,11 @@ public class Test347topK {
     		}
     	}
     	ArrayList<Integer> sortList = new ArrayList<Integer>(map.keySet());
-    	//Ñ¡ÔñÆ÷
+    	//æ’åº
     	Collections.sort(sortList,new Comparator<Integer>() {
              @Override
              public int compare(Integer o1, Integer o2) {
-                 // ·µ»ØÖµÎªintÀàĞÍ£¬´óÓÚ0±íÊ¾ÕıĞò£¬Ğ¡ÓÚ0±íÊ¾ÄæĞò
+                 // é™åº
                  return map.get(o2)-map.get(o1);
              }
          });
@@ -36,7 +36,7 @@ public class Test347topK {
     	return result;
     }
     
-    //Ê¹ÓÃ¶Ñ½øĞĞ¹¹ÔìÊä³ö
+    //ä½¿ç”¨å †
     public static int[] topKFrequentWithHeap(int[] nums, int k) {
     	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
     	for(int i = 0; i < nums.length; i++) {

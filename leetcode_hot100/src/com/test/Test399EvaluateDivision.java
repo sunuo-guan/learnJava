@@ -7,7 +7,7 @@ public class Test399EvaluateDivision {
 		
 	}
 	
-	//Êı¾İ½á¹¹£ºÍ¼£¬ÓÃFloydËã³öÃ»ÓĞÖµµÄ¶şÎ¬¾ØÕóµã
+	//æ•°æ®ç»“æ„ï¼šå›¾ï¼Œæ„é€ å¥½è·ç¦»çŸ©é˜µåï¼Œè¿è¿ç”¨Floydç®—æ³•è®¡ç®—è·ç¦»ä¸º0çš„è·ç¦»
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
     	int count = 0;
     	HashMap<String, Integer> map = new HashMap<String, Integer>();

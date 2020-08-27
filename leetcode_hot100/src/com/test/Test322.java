@@ -9,6 +9,8 @@ public class Test322 {
 		System.out.println(coinChange(arr, amount));
 	}
 	
+	//硬币组成规定数额：动态规划
+	//dp[i] = （前面能组成对应额度的数额+给定的所有硬币额度 == 当前所需的额度i）中最小的硬币数+1
     public static int coinChange(int[] coins, int amount) {
     	int minCoin[] = new int[amount+1];
     	Arrays.fill(minCoin, amount+1);
