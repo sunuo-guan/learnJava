@@ -1,0 +1,57 @@
+package com.offer.chapter5;
+
+public class Test51Demo {
+	public static void main(String[] args) {
+		Solution51 solution51 = new Solution51();
+		int nums[]= {7,5,6,4};
+		System.out.println(solution51.reversePairs(nums));
+	}
+	
+	
+}
+
+class Solution51 {
+	private long count=0;
+	private int[] temp;
+	
+    public int reversePairs(int[] nums) {
+    	temp=new int[nums.length];
+    	mergeSort(0,nums.length-1,nums);
+    	return (int)count;
+    }
+    
+    private void mergeSort(int left,int right,int nums[]) {
+    	if(right<=left) {
+    		return;
+    	}
+    	int mid=(left+right)/2;
+    	mergeSort(left, mid-1, nums);
+    	mergeSort(mid+1, right, nums);
+    	merge(left,right,mid,nums);
+    }
+    
+    private void merge(int left,int right,int mid,int nums[]) {
+    	int l=left,r=mid+1,k=left;
+    	while(l<=mid||r<=right) {
+    		if(l>r) {        
+    			//拷贝剩余的到辅助数组
+    			temp[k]=nums[r++];
+    		}else if(r>right){
+    			//拷贝剩余的到辅助数组
+    			temp[k]=nums[l++];
+    		}else if(nums[l]<=nums[r]) {
+    			//拷贝较小的值到辅助数组，此时左边小于右边，不构成逆序对
+    			temp[k]=nums[l++];
+    		}else {
+    			//拷贝较小的值到辅助数组，此时左边大于右边，构成逆序对，进行计数
+    			temp[k]=nums[r++];
+    			this.count=this.count+mid-l+1;
+    		}
+    		k++;
+    	}
+    	
+    	for(k=l;k<=right;k++) {
+    		nums[k]=temp[k];
+    	}
+    }
+}

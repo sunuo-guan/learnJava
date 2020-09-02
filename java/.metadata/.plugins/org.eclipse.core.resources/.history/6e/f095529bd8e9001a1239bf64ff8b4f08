@@ -1,0 +1,117 @@
+package meituan;
+
+import java.util.*;
+
+public class Test3 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		int x = scanner.nextInt();
+		int y = scanner.nextInt();
+		TreeNode[] nodeArr = new TreeNode[n];
+		for (int i = 0; i < n; i++) {
+			nodeArr[i] = new TreeNode(i);
+		}
+		int[][] r = new int[n - 1][2];
+		for (int i = 0; i < n-1; i++) {
+			r[i][0] = scanner.nextInt();
+			r[i][1] = scanner.nextInt();
+		}
+		for (int i = 0; i < n-1; i++) {
+			if(nodeArr[r[i][1]].left == null) {
+				nodeArr[r[i][1]].left = nodeArr[r[i][0]];
+			} else {
+				nodeArr[r[i][1]].right = nodeArr[r[i][0]];
+			}
+		}
+		int depth = maxDepth(nodeArr[y]);
+		System.out.println(2);
+	}
+	
+    public static int maxDepth(TreeNode root) {
+        if(root==null) {
+    		return 0;
+    	}
+    	
+    	int left=maxDepth(root.left);
+    	int right=maxDepth(root.right);
+    	
+    	if(left>right) {
+    		return left+1;
+    	}else {
+    		return right+1;
+    	}
+    }
+    
+	private void maxDistance(TreeNode root) {
+		// 遍历到叶子节点，返回
+		if (root == null)
+			return;
+ 
+		// 如果左子树为空，那么该节点的左边最长距离为0
+		if (root.left == null) {
+			root.nMaxLeft = 0;
+		}
+ 
+		// 如果右子树为空，那么该节点的右边最长距离为0
+		if (root.right == null) {
+			root.nMaxRight = 0;
+		}
+ 
+		// 如果左子树不为空，递归寻找左子树最长距离
+		if (root.left != null) {
+			maxDistance(root.left);
+		}
+ 
+		// 如果右子树不为空，递归寻找右子树最长距离
+		if (root.right != null) {
+			maxDistance(root.right);
+		}
+ 
+		// 计算左子树最长节点距离
+		if (root.left != null) {
+			int nTempMax = 0;
+			if (root.left.nMaxLeft > root.left.nMaxRight) {
+				nTempMax = root.left.nMaxLeft;
+			} else {
+				nTempMax = root.left.nMaxRight;
+			}
+			root.nMaxLeft = nTempMax + 1;
+		}
+ 
+		// 计算右子树最长节点距离
+		if (root.right != null) {
+			int nTempMax = 0;
+			if (root.right.nMaxLeft > root.right.nMaxRight) {
+				nTempMax = root.right.nMaxLeft;
+			} else {
+				nTempMax = root.right.nMaxRight;
+			}
+			root.nMaxRight = nTempMax + 1;
+		}
+ 
+		// 更新最长距离
+		if (root.nMaxLeft + root.nMaxRight > maxDistance) {
+			maxDistance = root.nMaxLeft + root.nMaxRight;
+		}
+	}
+}
+
+class TreeNode {
+	int val;
+	TreeNode left;
+	TreeNode right;
+
+	TreeNode() {
+	}
+
+	TreeNode(int val) {
+		this.val = val;
+	}
+
+	TreeNode(int val, TreeNode left, TreeNode right) {
+		this.val = val;
+		this.left = left;
+		this.right = right;
+	}
+}

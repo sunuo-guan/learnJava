@@ -1,0 +1,36 @@
+package com.offer.chapter5;
+
+import java.util.HashMap;
+
+public class Test48Demo {
+	public static void main(String[] args) {
+		String s="pwwkew";
+		System.out.println(lengthOfLongestSubstring(s));
+	}
+	
+    public static int lengthOfLongestSubstring(String s) {
+    	if(s==null||s.length()==0) {
+    		return 0;
+    	}
+    	
+    	//读取s的字符，存于哈希表中，key为字母，value为在字符串中的位置
+    	HashMap<Character, Integer> map=new HashMap<Character, Integer>();
+    	
+    	int maxLen=0;
+    	for (int i = 0; i < s.length(); i++) {
+			//如果字符串中已包含当前读到的字符，则最大值看重复字符的距离d与当前最大值比较
+    		if(map.containsKey(s.charAt(i))) {
+				if(i-map.get(s.charAt(i))>maxLen) {
+					maxLen++;
+				}else {
+					maxLen=i-map.get(s.charAt(i));
+				}
+			}else {
+				maxLen++;
+			}
+    		map.put(s.charAt(i), i);
+		}
+    	return maxLen;
+    	
+    }
+}

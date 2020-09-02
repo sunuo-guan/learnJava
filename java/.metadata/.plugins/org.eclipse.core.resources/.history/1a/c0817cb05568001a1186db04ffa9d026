@@ -1,0 +1,87 @@
+package com.iostream;
+
+import java.io.*;
+
+public class IOTest {
+	public static void main(String[] args) {
+		try {
+			testFileReader();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			fileWriterTest();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/*
+	 * read到文件末尾为-1，否则为字符char
+	 * 读入时文件一定要存在
+	 * 
+	 */
+	public static void testFileReader() throws IOException {
+		
+		FileReader fr=null;
+		
+		try {
+			//1.实例化file类对象，指明要操作的文件
+			File file = new File("hello.txt"); //相较于当前项目
+			
+			//2.提供具体流
+			fr = new FileReader(file);
+			//3.数据读入
+			//单个字符读入方法
+//			int data;
+//			while ((data = fr.read()) != -1) {
+//				System.out.print((char) data);
+//			} 
+			
+			//字符数组读入方法
+			char cbuf[]=new char[5];
+			int len;
+			while((len=fr.read(cbuf))!=-1) {
+				for(int i=0;i<len;i++) {
+					System.out.print(cbuf[i]);
+				}
+				//错误写法：
+//				for(int i=0;i<cbuf.length;i++) {
+//					System.out.print(cbuf[i]);
+//				}
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			//4.流的关闭
+			if(fr!=null)
+				fr.close();
+		}		
+	}
+	
+	public static void fileWriterTest() throws IOException {
+		//1.提供file类的对象，指明要操作的文件
+		File file=new File("hello1.txt");
+		
+		//2.提供fileWriter对象
+		FileWriter fw=new FileWriter(file);    //默认是覆盖文件
+//		FileWriter fw=new FileWriter(file, false);    //false也是覆盖文件
+//		FileWriter fw=new FileWriter(file, true);    //true是在文件后追加写
+		
+		//3.写出
+		fw.write("hello world!\r ");    
+		fw.write("hello word\n"); 
+		
+		//4.关闭流
+		fw.close();
+		
+		
+	}
+}
