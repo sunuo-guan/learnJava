@@ -1,0 +1,39 @@
+package com.iostream;
+
+import java.io.*;
+
+public class IOTest {
+	public static void main(String[] args) {
+		try {
+			testFileReader();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void testFileReader() throws IOException {
+		
+		FileReader fr=null;
+		
+		try {
+			//1.实例化file类对象，指明要操作的文件
+			File file = new File("hell.txt"); //相较于当前项目
+			
+			//2.提供具体流
+			fr = new FileReader(file);
+			//3.数据读入
+			int data;
+			while ((data = fr.read()) != -1) {
+				System.out.print((char) data);
+			} 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			//4.流的关闭
+			fr.close();
+		}
+		
+		
+	}
+}

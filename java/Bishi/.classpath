@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="meituan"/>
+	<classpathentry kind="src" path="baidu"/>
+	<classpathentry kind="src" path="meituan2"/>
+	<classpathentry kind="src" path="wangyi"/>
+	<classpathentry kind="src" path="webank"/>
+	<classpathentry kind="src" path="pdd1"/>
+	<classpathentry kind="src" path="wangyihuyu"/>
+	<classpathentry kind="src" path="kuaishou"/>
+	<classpathentry kind="src" path="jingdongyan"/>
+	<classpathentry kind="src" path="duxiaoman"/>
+	<classpathentry kind="src" path="tengxun"/>
+	<classpathentry kind="src" path="zhaohang"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
