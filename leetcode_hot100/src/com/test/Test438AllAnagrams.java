@@ -78,4 +78,42 @@ public class Test438AllAnagrams {
         }
         return res;
     }
+    
+    public List<Integer> findAnagrams3(String s, String p) {
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+    	for (int i = 0; i < p.length(); i++) {
+			if (map.containsKey(p.charAt(i))) {
+				map.put(p.charAt(i), map.get(p.charAt(i))+1);
+			}else {
+				map.put(p.charAt(i), 1);
+			}
+		}
+        HashMap<Character, Integer> window = new HashMap<Character, Integer>();
+    	List<Integer> result = new ArrayList<Integer>();
+        int left = 0, right = 0;
+        int fitWindowLen = 0;
+    	while(right < s.length()) {
+            if(map.containsKey(s.charAt(right))) {
+            	window.put(s.charAt(right),window.getOrDefault(s.charAt(right), 0) + 1);
+            	if(window.get(s.charAt(right)) <= map.get(s.charAt(right))) {
+            		fitWindowLen++;
+            	}
+            }
+            while(fitWindowLen == p.length()) {
+            	if(right - left + 1 == p.length()) {
+            		result.add(left);
+            	}
+            	if(map.containsKey(s.charAt(left))) {
+            		window.put(s.charAt(left), window.get(s.charAt(left)) - 1);
+            		if(window.get(s.charAt(left)) < map.get(s.charAt(left))) {
+            			fitWindowLen--;
+            		}
+            	}
+            	left++;
+            }
+            right++;
+        }
+    	return result;
+
+    }
 }
