@@ -1,0 +1,35 @@
+package com.netEasy.three;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String str = scanner.nextLine();
+		System.out.println(solution(str));
+	}
+	
+	public static int solution(String str) {
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		map.put('a', 0);
+		map.put('b', 1);
+		map.put('c', 2);
+		map.put('x', 3);
+		map.put('y', 4);
+		map.put('z', 5);
+		int n = str.length(), res = 0;
+		int dp[] = new int[64];
+		int cur = 0;
+		Arrays.fill(dp, n);
+		dp[0] = -1;
+		for(int i = 0;i<n;i++) {
+			int id = map.getOrDefault(str.charAt(i), -1);
+			if(id >= 0) {
+				cur ^= (1 << id);
+			}
+			dp[cur] = Math.min(dp[cur], i);
+			res = Math.max(res, i-dp[cur]);
+		}
+		return res;
+	}
+}

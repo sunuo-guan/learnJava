@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Queue"/>
-<fullyQualifiedTypeName name="com.Compare.Goods"/>
-<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-<fullyQualifiedTypeName name="java.lang.Long"/>
-<fullyQualifiedTypeName name="java.math.BigInteger"/>
-<fullyQualifiedTypeName name="com.offer.chapter6.TreeNode"/>
 <fullyQualifiedTypeName name="com.offer.chapter6.Solution68"/>
 <fullyQualifiedTypeName name="com.linkedList.ListNode"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
@@ -22,7 +16,6 @@
 <fullyQualifiedTypeName name="com.array.Solution31"/>
 <fullyQualifiedTypeName name="com.array.Solution39"/>
 <fullyQualifiedTypeName name="bishi.zhaoshangyinhang.second.MainThird"/>
-<fullyQualifiedTypeName name="java.util.Comparator"/>
 <fullyQualifiedTypeName name="com.webank.three.Main.Node"/>
 <fullyQualifiedTypeName name="com.thread.Singleton"/>
 <fullyQualifiedTypeName name="com.wangyihuyu.one.solution"/>
@@ -48,16 +41,23 @@
 <fullyQualifiedTypeName name="com.linkedList.Test148Demo"/>
 <fullyQualifiedTypeName name="com.tengxun.three.Main"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="com.tree.TrieNode"/>
 <fullyQualifiedTypeName name="java.util.PriorityQueue"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="com.tree.TreeNode"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="meituan.TreeNode"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="com.one.Main"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="com.two.Main"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.huawei.first.Toy"/>
+<fullyQualifiedTypeName name="com.huawei.two.Graph"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,56 @@
+package com.huawei.first;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int nOfPrefect = scanner.nextInt();
+		Toy[] prefectToy = new Toy[nOfPrefect];
+		for (int i = 0; i < nOfPrefect; i++) {
+			Toy toy = new Toy();
+			toy.character = scanner.nextInt();
+			prefectToy[i] = toy;
+		}
+		for (int i = 0; i < nOfPrefect; i++) {
+			prefectToy[i].value = scanner.nextInt();
+		}
+		int nOfNow = scanner.nextInt();
+		Toy nowToy[] = new Toy[nOfNow];
+		for (int i = 0; i < nOfNow; i++) {
+			Toy toy = new Toy();
+			toy.character = scanner.nextInt();
+			nowToy[i] = toy;
+		}
+		for (int i = 0; i < nOfNow; i++) {
+			nowToy[i].value = scanner.nextInt();
+		}
+		System.out.println(solution(prefectToy, nowToy, nOfPrefect, nOfNow));
+	}
+	
+	public static int solution(Toy[] prefectToy, Toy[] nowToy, int nOfPrefect, int nOfNow) {
+		int res = 0;
+		for (int i = 0; i < nOfNow; i++) {
+			if (nowToy[i].character == prefectToy[i].character && nowToy[i].value == nowToy[i].value) {
+				int len = 0;
+				for (int j = i; j < i + nOfPrefect; j++) {
+					if (j>=nOfNow || nowToy[j].character != prefectToy[j].character || nowToy[j].value != nowToy[j].value) {
+						break;
+					} else {
+						len++;
+					}
+				}
+				if(len == nOfPrefect) {
+					res = i + 1;
+					break;
+				}
+			}
+		}
+		return res;
+	}
+}
+
+class Toy {
+	public int character;
+	public int value;
+}

@@ -1,0 +1,66 @@
+package com.netEasy.three;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String str = scanner.nextLine();
+		System.out.println(solution(str));
+	}
+	
+	public static int solution(String str) {
+		HashSet<Character> set = new HashSet<Character>();
+		set.add('a');
+		set.add('b');
+		set.add('c');
+		set.add('x');
+		set.add('y');
+		set.add('z');
+		HashMap<Character, Integer> window = new HashMap<Character, Integer>();
+		int left = 0, right = 0;
+		int maxLen = 0;
+		
+		while(right < str.length()) {
+			if (set.contains(str.charAt(right))) {
+				window.put(str.charAt(right), window.getOrDefault(str.charAt(right), 0) + 1);
+			}
+			if(isMatch(window)) {
+				maxLen = Math.max(maxLen, right - left + 1);
+			}
+			right++;
+			
+			while(right == str.length()) {
+				if(left > right) {
+					break;
+				}
+				if (set.contains(str.charAt(left))) {
+					int temp = window.get(str.charAt(left)) - 1;
+					if(temp == 0) {
+						window.remove(str.charAt(left));
+					} else {
+						window.put(str.charAt(left), temp);
+					}
+				}
+				if(isMatch(window)) {
+					maxLen = Math.max(maxLen, right - left + 1);
+				}
+				left++;
+			}
+		}
+		
+		return maxLen;
+	}
+	
+	public static boolean isMatch(HashMap<Character, Integer> window) {
+		if(window.isEmpty()) {
+			return true;
+		}
+		for(char matchChar : window.keySet()) {
+			if(window.get(matchChar) % 2 == 1) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

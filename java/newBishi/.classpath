@@ -3,5 +3,12 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="yy"/>
+	<classpathentry kind="src" path="bilibili"/>
+	<classpathentry kind="src" path="netEast"/>
+	<classpathentry kind="src" path="tx"/>
+	<classpathentry kind="src" path="huawei"/>
+	<classpathentry kind="src" path="netEasy"/>
+	<classpathentry kind="src" path="baidu"/>
+	<classpathentry kind="src" path="dianxinyun"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

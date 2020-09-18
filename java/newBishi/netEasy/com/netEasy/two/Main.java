@@ -1,0 +1,35 @@
+package com.netEasy.two;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String str = scanner.nextLine();
+		System.out.println(solution(str));
+	}
+	
+	public static int solution(String s) {
+		if(s == null || s.length() == 0) {
+			return 0;
+		}
+		int n = s.length();
+		if(n == 1) {
+			return 0;
+		}
+		char charStr[] = s.toCharArray();
+		int dp[][] = new int[n][n];
+		
+		int sum = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			dp[i][i] = 1;
+			for (int j = i + 1; j < n; j++) {
+				if(charStr[i] == charStr[j] && (i == j - 1 || dp[i+1][j - 1]==1)) {
+					dp[i][j] = 1;
+					sum++;
+				}
+			}
+		}
+		return sum;
+	}
+}
