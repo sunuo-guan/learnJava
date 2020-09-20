@@ -19,7 +19,7 @@ public class Test {
 			b6 = sc.nextInt();
 			if(b1 ==0&&b2==0&&b3==0&&b4==0&&b5==0&&b6==0)
 				break;
-			nTotal = b6+b5+b4+(b3/4 + 1);     //1
+			nTotal = b6+b5+b4+(b3+3)/4;     //1
 			c2 = 5*b4 + Contain2[b3%4];       //2
 			if(b2 >c2)
 				nTotal += (b2 - c2 + 8) /9;
